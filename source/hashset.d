@@ -396,7 +396,21 @@ unittest {
             assert(found);
         }
 
-    }
+        writeln("Passed opApply");
 
-    writeln("Passed opApply");
+        outputArray = output.asArray();
+
+        foreach (searchTerm; [1, 2, 3, 4, 5]) {
+            bool found = false;
+            inner2: foreach (int key; outputArray) {
+                if (key == searchTerm) {
+                    found = true;
+                    break inner2;
+                }
+            }
+            assert(found);
+        }
+
+        writeln("Passed asArray");
+    }
 }
