@@ -9,7 +9,7 @@ protected:
 
 public:
 
-    /// Condense a HashSet from items.
+    /// Construct a HashSet from items.
     /// Params:
     ///   initialData = The initial data to add. Duplicates will condense.
     this(T...)(T initialData) {
