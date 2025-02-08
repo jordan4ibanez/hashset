@@ -3,7 +3,7 @@
 
 You just use it like you would think you use a HashSet.
 
-If you are still confused at the end of this, please see [the source code](https://github.com/jordan4ibanez/hashset/blob/main/source/hashset.d) or [unit test. (which is in the source code)](https://github.com/jordan4ibanez/hashset/blob/main/source/hashset.d#L250).
+If you are still confused at the end of this, please see [the source code](https://github.com/jordan4ibanez/hashset/blob/main/source/hashset.d) or [unit test. (which is in the source code)](https://github.com/jordan4ibanez/hashset/blob/main/source/hashset.d#L250)
 
 How to use:
 ```D
