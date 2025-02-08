@@ -37,13 +37,15 @@ void main() {
 
 	writeln("=-=-=-=-==--==");
 
-	auto a = HashSet!string("one", "two", "three");
-	auto b = HashSet!string("four", "five", "six");
+	{
+		auto a = HashSet!string("one", "two", "three");
+		auto b = HashSet!string("four", "five", "six");
 
-	a.swap(b);
+		a.swap(b);
 
-	writeln(a);
-	writeln(b);
+		writeln(a);
+		writeln(b);
+	}
 
 	// Serious time.
 	writeln(":::::SERIOUS TIME:::::");
@@ -155,5 +157,47 @@ void main() {
 	writeln("Passed clear");
 	writeln("Passed length");
 	writeln("Passed empty");
+
+	{
+		auto a = HashSet!int(1, 2, 3);
+		auto b = HashSet!int(4, 5, 6);
+
+		a.swap(b);
+
+		assert(a.contains(4, 5, 6));
+		assert(b.contains(1, 2, 3));
+	}
+
+	writeln("Passed swap");
+
+	testCase = HashSet!int(1, 2, 3, 4, 5);
+
+	{
+		auto output = HashSet!int();
+		int[] outputArray = [];
+
+		assert(output.empty);
+
+		foreach (value; testCase) {
+			output.insert(value);
+			outputArray ~= value;
+		}
+
+		assert(output.contains(1, 2, 3, 4, 5));
+
+		foreach (searchTerm; [1, 2, 3, 4, 5]) {
+			bool found = false;
+			inner: foreach (int key; outputArray) {
+				if (key == searchTerm) {
+					found = true;
+					break inner;
+				}
+			}
+			assert(found);
+		}
+
+	}
+
+	writeln("Passed opApply");
 
 }
