@@ -63,4 +63,4 @@ void main() {
 }
 ```
 
-If you are still confused, please see the source code or unit test (which is in the source code).
+If you are still confused, please see [the source code](https://github.com/jordan4ibanez/hashset/blob/main/source/hashset.d) or [unit test (which is in the source code)](https://github.com/jordan4ibanez/hashset/blob/main/source/hashset.d#L250).
