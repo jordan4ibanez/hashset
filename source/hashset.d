@@ -131,6 +131,30 @@ public:
         return true;
     }
 
+    /// Clear the HashSet.
+    void clear() {
+        data.clear();
+    }
+
+    /// Swap data with another HashSet.
+    /// Params:
+    ///   other = Another HashSet to swap data with.
+    void swap(ref HashSet!T other) {
+        bool[T] thisOldData = data;
+        data = other.data;
+        other.data = thisOldData;
+    }
+
+    /// Check if the HashSet is empty.
+    bool empty() {
+        return data.length == 0;
+    }
+
+    /// Get the number of items in the HashSet.
+    ulong length() {
+        return data.length;
+    }
+
     /// This is literally so you can foreach over the HashSet.
     int opApply(scope int delegate(ref T) dg) {
         int result = 0;
