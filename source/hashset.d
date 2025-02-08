@@ -177,7 +177,7 @@ public:
     }
 
     // Get all the data from the HashSet into a standard array.
-    T[] arrayOf() {
+    T[] intoArray() {
         return data.keys;
     }
 
