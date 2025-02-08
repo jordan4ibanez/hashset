@@ -106,6 +106,10 @@ public:
     ///   dataCheck = Data to check for.
     /// Returns: If contains all data.
     bool contains(T...)(T dataCheck) {
+        // Cannot contain nothing.
+        if (dataCheck.length == 0) {
+            return false;
+        }
         foreach (value; dataCheck) {
             if (value !in data) {
                 return false;
@@ -119,6 +123,10 @@ public:
     ///   dataCheck = Array of data to check for.
     /// Returns: If contains all data.
     bool contains(T[] dataCheck) {
+        // Cannot contain nothing.
+        if (dataCheck.length == 0) {
+            return false;
+        }
         foreach (value; dataCheck) {
             if (value !in data) {
                 return false;
@@ -132,6 +140,10 @@ public:
     ///   dataCheck = Other HashSet containing data to check for.
     /// Returns: If contains all data.
     bool contains(HashSet!T dataCheck) {
+        // Cannot contain nothing.
+        if (dataCheck.length() == 0) {
+            return false;
+        }
         foreach (value, _; dataCheck.data) {
             if (value !in data) {
                 return false;
