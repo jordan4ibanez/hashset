@@ -27,6 +27,15 @@ public:
         }
     }
 
+    /// Construct a HashSet from another HashSet.
+    /// Params:
+    ///   initialData = The initial data from another HashSet to add.
+    this(HashSet!T initialData) {
+        foreach (value, _; initialData.data) {
+            data[value] = true;
+        }
+    }
+
     /// Add items to the HashSet.
     /// Params:
     ///   newData = New data to add. Duplicates will condense.
