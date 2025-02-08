@@ -90,17 +90,6 @@ public:
         }
     }
 
-    /// Combines this HashSet with another. Creates new HashSet.
-    /// Params:
-    ///   otherHashSet = The other HashSet to merge with.
-    /// Returns: A new HashSet containing both HashSet's data.
-    HashSet!T merge(HashSet!T otherHashSet) {
-        HashSet!T newHashSet;
-        newHashSet.insert(this);
-        newHashSet.insert(otherHashSet);
-        return newHashSet;
-    }
-
     /// Check if contains all data. If multiple, one item missing == false.
     /// Params:
     ///   dataCheck = Data to check for.
@@ -150,6 +139,17 @@ public:
             }
         }
         return true;
+    }
+
+    /// Combines this HashSet with another. Creates new HashSet.
+    /// Params:
+    ///   otherHashSet = The other HashSet to merge with.
+    /// Returns: A new HashSet containing both HashSet's data.
+    HashSet!T merge(HashSet!T otherHashSet) {
+        HashSet!T newHashSet;
+        newHashSet.insert(this);
+        newHashSet.insert(otherHashSet);
+        return newHashSet;
     }
 
     /// Clear the HashSet.
