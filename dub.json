@@ -1,0 +1,9 @@
+{
+	"authors": [
+		"jordan4ibanez"
+	],
+	"copyright": "Copyright © 2025, jordan4ibanez",
+	"description": "Hashset for D.",
+	"license": "MIT",
+	"name": "hashset"
+}

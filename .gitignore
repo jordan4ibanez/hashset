@@ -1,0 +1,16 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/hashset
+hashset.so
+hashset.dylib
+hashset.dll
+hashset.a
+hashset.lib
+hashset-test-*
+*.exe
+*.pdb
+*.o
+*.obj
+*.lst
