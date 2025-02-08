@@ -7,6 +7,10 @@ void main() {
 
 	myCoolHashSet.erase(1, 4, 234);
 
+	myCoolHashSet.insert([1, 2, 3, 4]);
+
+	myCoolHashSet.insert(HashSet!int(5, 6, 7, 8, 74, 3, 6, 1, 23, 3));
+
 	writeln(myCoolHashSet);
 
 	myCoolHashSet.insert(1, 2, 3, 4, 5);
@@ -40,5 +44,116 @@ void main() {
 
 	writeln(a);
 	writeln(b);
+
+	// Serious time.
+	writeln(":::::SERIOUS TIME:::::");
+
+	auto testCase = HashSet!int(1, 2, 3, 4, 5);
+	assert(testCase.contains(1, 2, 3, 4, 5));
+	assert(testCase.contains([1, 2, 3, 4, 5]));
+	assert(testCase.contains(HashSet!int(1, 2, 3, 4, 5)));
+
+	assert(!testCase.contains(-1, 2, 10, 9));
+	assert(!testCase.contains([-1, 2, 10, 9]));
+	assert(!testCase.contains(HashSet!int(-1, 2, 10, 9)));
+	assert(!testCase.contains());
+
+	writeln("Passed contains 1");
+
+	testCase = HashSet!int([1, 2, 3, 4, 5]);
+
+	assert(testCase.contains(1, 2, 3, 4, 5));
+	assert(testCase.contains([1, 2, 3, 4, 5]));
+	assert(testCase.contains(HashSet!int(1, 2, 3, 4, 5)));
+
+	assert(!testCase.contains(-1, 2, 10, 9));
+	assert(!testCase.contains([-1, 2, 10, 9]));
+	assert(!testCase.contains(HashSet!int(-1, 2, 10, 9)));
+	assert(!testCase.contains());
+
+	writeln("Passed contains 2");
+
+	testCase = HashSet!int(HashSet!int(1, 2, 3, 4, 5));
+
+	assert(testCase.contains(1, 2, 3, 4, 5));
+	assert(testCase.contains([1, 2, 3, 4, 5]));
+	assert(testCase.contains(HashSet!int(1, 2, 3, 4, 5)));
+
+	assert(!testCase.contains(-1, 2, 10, 9));
+	assert(!testCase.contains([-1, 2, 10, 9]));
+	assert(!testCase.contains(HashSet!int(-1, 2, 10, 9)));
+	assert(!testCase.contains());
+
+	writeln("Passed contains 3");
+
+	{
+		auto tempTestCase = testCase.merge(HashSet!int(6, 7, 8, 9, 10));
+
+		assert(tempTestCase.contains(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+		assert(tempTestCase.contains([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+		assert(tempTestCase.contains(HashSet!int(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)));
+
+		assert(!tempTestCase.contains(-1, 2, 10, 9));
+		assert(!tempTestCase.contains([-1, 2, 10, 9]));
+		assert(!tempTestCase.contains(HashSet!int(-1, 2, 10, 9)));
+		assert(!tempTestCase.contains());
+	}
+
+	writeln("Passed merge");
+
+	testCase = HashSet!int(1, 2, 3, 4, 5);
+	testCase.erase(2, 4);
+
+	assert(testCase.contains(1, 3, 5));
+	assert(testCase.contains([1, 3, 5]));
+	assert(testCase.contains(HashSet!int(1, 3, 5)));
+
+	assert(!testCase.contains(1, 2, 3, 4, 5));
+	assert(!testCase.contains([1, 2, 3, 4, 5]));
+	assert(!testCase.contains(HashSet!int(1, 2, 3, 4, 5)));
+	assert(!testCase.contains());
+
+	writeln("Passed erase 1");
+
+	testCase = HashSet!int(1, 2, 3, 4, 5);
+	testCase.erase([2, 4]);
+
+	assert(testCase.contains(1, 3, 5));
+	assert(testCase.contains([1, 3, 5]));
+	assert(testCase.contains(HashSet!int(1, 3, 5)));
+
+	assert(!testCase.contains(1, 2, 3, 4, 5));
+	assert(!testCase.contains([1, 2, 3, 4, 5]));
+	assert(!testCase.contains(HashSet!int(1, 2, 3, 4, 5)));
+	assert(!testCase.contains());
+
+	writeln("Passed erase 2");
+
+	testCase = HashSet!int(1, 2, 3, 4, 5);
+	testCase.erase(HashSet!int(2, 4));
+
+	assert(testCase.contains(1, 3, 5));
+	assert(testCase.contains([1, 3, 5]));
+	assert(testCase.contains(HashSet!int(1, 3, 5)));
+
+	assert(!testCase.contains(1, 2, 3, 4, 5));
+	assert(!testCase.contains([1, 2, 3, 4, 5]));
+	assert(!testCase.contains(HashSet!int(1, 2, 3, 4, 5)));
+	assert(!testCase.contains());
+
+	writeln("Passed erase 3");
+
+	assert(testCase.length() == 3);
+	assert(testCase.length() > 0);
+	assert(!testCase.empty());
+
+	testCase.clear();
+
+	assert(testCase.length() == 0);
+	assert(testCase.empty());
+
+	writeln("Passed clear");
+	writeln("Passed length");
+	writeln("Passed empty");
 
 }
