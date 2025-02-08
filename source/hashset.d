@@ -198,6 +198,11 @@ public:
 unittest {
     import std.stdio;
 
+    auto neat = HashSet!int(1, 2, 3, 4, 5).merge(HashSet!int(6, 7, 8, 9, 10));
+
+    writeln(neat);
+    assert(neat.contains(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+
     HashSet!int myCoolHashSet = HashSet!int([1, 4, 4, 234,]);
 
     myCoolHashSet.erase(1, 4, 234);
