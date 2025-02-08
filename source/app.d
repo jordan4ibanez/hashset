@@ -3,27 +3,42 @@ import std.stdio;
 import hashset;
 
 void main() {
-	HashSet!int blah = HashSet!int([1, 4, 4, 234,]);
+	HashSet!int myCoolHashSet = HashSet!int([1, 4, 4, 234,]);
 
-	blah.erase(1, 4, 234);
+	myCoolHashSet.erase(1, 4, 234);
 
-	writeln(blah);
+	writeln(myCoolHashSet);
 
-	blah.insert(1, 2, 3, 4, 5);
+	myCoolHashSet.insert(1, 2, 3, 4, 5);
 
 	auto foof = HashSet!int(6, 7, 8, 9, 10);
 
-	blah.insert(foof);
+	myCoolHashSet.insert(foof);
 
-	writeln(blah);
+	writeln(myCoolHashSet);
 
-	writeln(blah.merge(HashSet!int(11, 12, 13, 14, 15)));
+	writeln(myCoolHashSet.merge(HashSet!int(11, 12, 13, 14, 15)));
 
-	foreach (k; blah) {
+	foreach (k; myCoolHashSet) {
 		writeln(k);
 	}
 
-	writeln(blah.contains(HashSet!int(1,2,3)));
+	writeln(myCoolHashSet.contains(HashSet!int(1, 2, 3)));
 
+	myCoolHashSet.clear();
+
+	writeln(myCoolHashSet.empty());
+
+	writeln(HashSet!int().empty());
+
+	writeln("=-=-=-=-==--==");
+
+	auto a = HashSet!string("one", "two", "three");
+	auto b = HashSet!string("four", "five", "six");
+
+	a.swap(b);
+
+	writeln(a);
+	writeln(b);
 
 }
