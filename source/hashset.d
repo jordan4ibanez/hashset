@@ -176,6 +176,11 @@ public:
         return data.length;
     }
 
+    // Get all the data from the HashSet into a standard array.
+    T[] arrayOf() {
+        return data.keys;
+    }
+
     /// This is literally so you can foreach over the HashSet.
     int opApply(scope int delegate(ref T) dg) {
         int result = 0;
