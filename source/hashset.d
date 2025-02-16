@@ -36,6 +36,11 @@ public:
         }
     }
 
+    /// Rehash the HashSet for faster lookup.
+    void rehash() {
+        data.rehash();
+    }
+
     /// Add items to the HashSet.
     /// Params:
     ///   newData = New data to add. Duplicates will condense.
@@ -371,6 +376,7 @@ unittest {
     writeln("Passed swap");
 
     testCase = HashSet!int(1, 2, 3, 4, 5);
+    testCase.rehash();
 
     {
         auto output = HashSet!int();
