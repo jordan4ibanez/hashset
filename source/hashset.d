@@ -378,6 +378,8 @@ unittest {
     testCase = HashSet!int(1, 2, 3, 4, 5);
     testCase.rehash();
 
+    writeln("Passed rehash");
+
     {
         auto output = HashSet!int();
         int[] outputArray = [];
